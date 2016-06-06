@@ -6,13 +6,14 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
-using NuGetPe;
+using NuGet;
 using NuGetPackageExplorer.Types;
 using Ookii.Dialogs.Wpf;
 using Constants = PackageExplorerViewModel.Constants;
 
 namespace PackageExplorer
 {
+    using NuGet;
     using HttpClient = System.Net.Http.HttpClient;
 
     [Export(typeof(IPackageDownloader))]

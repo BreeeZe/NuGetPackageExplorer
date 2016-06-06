@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using NuGetPe;
-using NuGetPackageExplorer.Types;
+using NuGet;
 
 namespace PackageExplorerViewModel
 {
@@ -86,8 +85,8 @@ namespace PackageExplorerViewModel
             return builder.Build();
         }
 
-        public static IEnumerable<PackageIssue> Validate
-            (this IPackage package, IEnumerable<IPackageRule> rules, string packageSource)
+        public static IEnumerable<NuGet.PackageIssue> Validate
+            (this IPackage package, IEnumerable<NuGet.IPackageRule> rules, string packageSource)
         {
             foreach (IPackageRule rule in rules)
             {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NuGetPe;
+using NuGet;
 
 namespace NuGetPackageExplorer.Types
 {

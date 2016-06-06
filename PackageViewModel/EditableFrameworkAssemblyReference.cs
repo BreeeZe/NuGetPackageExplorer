@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Versioning;
-using NuGetPe;
+using NuGet;
 
 namespace PackageExplorerViewModel
 {
@@ -54,9 +54,9 @@ namespace PackageExplorerViewModel
             }
         }
 
-        public FrameworkAssemblyReference AsReadOnly(string displayValue)
+        public FrameworkAssemblyReference AsReadOnly()
         {
-            return new FrameworkAssemblyReference(AssemblyName, SupportedFrameworks, displayValue);
+            return new FrameworkAssemblyReference(AssemblyName, SupportedFrameworks);
         }
 
         public string Error

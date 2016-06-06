@@ -1,3 +1,4 @@
+using NuGet;
 using System.Collections.ObjectModel;
 using System.IO;
 

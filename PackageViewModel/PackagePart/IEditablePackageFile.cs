@@ -1,4 +1,4 @@
-﻿using NuGetPe;
+﻿using NuGet;
 
 namespace PackageExplorerViewModel
 {

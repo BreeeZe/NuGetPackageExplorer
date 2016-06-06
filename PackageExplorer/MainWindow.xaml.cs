@@ -13,13 +13,14 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Threading;
-using NuGetPe;
+using NuGet;
 using NuGetPackageExplorer.Types;
 using PackageExplorer.Properties;
 using PackageExplorerViewModel;
 using Constants = NuGetPe.Constants;
 using LazyPackageCommand = System.Lazy<NuGetPackageExplorer.Types.IPackageCommand, NuGetPackageExplorer.Types.IPackageCommandMetadata>;
 using StringResources = PackageExplorer.Resources.Resources;
+using NuGet;
 
 namespace PackageExplorer
 {
@@ -156,14 +157,14 @@ namespace PackageExplorer
             }
             catch (Exception ex)
             {
-                UIServices.Show(ex.Message, MessageLevel.Error);
+                UIServices.Show(ex.Message, NuGet.MessageLevel.Error);
                 return false;
             }
 
             return false;
         }
 
-        private void LoadPackage(IPackage package, string packagePath, PackageType packageType)
+        private void LoadPackage(NuGet.IPackage package, string packagePath, PackageType packageType)
         {
             DisposeViewModel();
 

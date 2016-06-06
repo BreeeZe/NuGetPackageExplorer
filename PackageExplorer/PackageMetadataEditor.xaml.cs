@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using NuGetPe;
+using NuGet;
 using NuGetPackageExplorer.Types;
 using PackageExplorerViewModel;
 

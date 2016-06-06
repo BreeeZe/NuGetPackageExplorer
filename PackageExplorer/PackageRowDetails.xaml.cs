@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using NuGetPe;
+using NuGet;
 using PackageExplorerViewModel;
 
 namespace PackageExplorer

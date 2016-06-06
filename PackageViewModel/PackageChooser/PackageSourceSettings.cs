@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using NuGetPe;
+using NuGet;
 using NuGetPackageExplorer.Types;
 
 namespace PackageExplorerViewModel

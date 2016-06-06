@@ -2,7 +2,7 @@
 using System.Runtime.Versioning;
 using System.Windows;
 using System.Windows.Data;
-using NuGetPe;
+using NuGet;
 
 namespace PackageExplorer
 {

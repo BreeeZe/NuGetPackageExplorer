@@ -1,5 +1,5 @@
 ﻿using System;
-using NuGetPe;
+using NuGet;
 
 namespace NuGetPackageExplorer.Types
 {

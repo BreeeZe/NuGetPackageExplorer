@@ -2,7 +2,7 @@
 using System.Linq;
 using System.ComponentModel;
 using System.Diagnostics;
-using NuGetPe;
+using NuGet;
 
 namespace PackageExplorerViewModel
 {
@@ -115,7 +115,7 @@ namespace PackageExplorerViewModel
 
         public PackageDependency AsReadOnly()
         {
-            return new PackageDependency(Id, VersionSpec, Exclude);
+            return new PackageDependency(Id, VersionSpec, "", Exclude);
         }
     }
 }

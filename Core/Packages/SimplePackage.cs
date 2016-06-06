@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NuGet;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -49,7 +50,7 @@ namespace NuGetPe
 
         public IEnumerable<IPackageFile> GetFiles()
         {
-            return _packageBuilder.Files.Where(p => !PackageUtility.IsManifest(p.Path));
+            return _packageBuilder.Files.Where(p => !PackageHelper.IsManifest(p.Path));
         }
 
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using NuGetPe;
+using NuGet;
 using NuGetPackageExplorer.Types;
 
 namespace PackageExplorerViewModel

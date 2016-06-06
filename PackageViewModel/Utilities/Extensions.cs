@@ -1,15 +1,22 @@
-﻿using System;
+﻿using NuGet;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using NuGetPe;
-using NuGet;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace NuGetPackageExplorer.Types
+namespace PackageExplorerViewModel.Utilities
 {
-    public static class PackageExtensions
+    public static class Extensions
     {
+        public static long PackageSize(this IPackage package)
+        {
+            using (var s = package.GetStream())
+                return s.Length;
+        }
+
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "InFolder")]
         public static IEnumerable<string> GetFilesInFolder(this IPackage package, string folder)
         {

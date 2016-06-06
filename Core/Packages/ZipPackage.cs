@@ -4,6 +4,7 @@ using System.IO;
 using System.IO.Packaging;
 using System.Linq;
 using NuGetPe.Resources;
+using NuGet;
 
 namespace NuGetPe
 {
@@ -270,7 +271,7 @@ namespace NuGetPe
             string path = UriUtility.GetPath(part.Uri);
             // We exclude any opc files and the manifest file (.nuspec)
             return !ExcludePaths.Any(p => path.StartsWith(p, StringComparison.OrdinalIgnoreCase)) &&
-                   !PackageUtility.IsManifest(path);
+                   !PackageHelper.IsManifest(path);
         }
 
         public override string ToString()

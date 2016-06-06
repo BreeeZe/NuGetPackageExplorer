@@ -62,10 +62,10 @@
     <Compile Include="PackageExtensions.cs" />
     <Compile Include="PackageIssue.cs" />
     <Compile Include="PackageIssueLevel.cs" />
-    <Compile Include="Packages\FrameworkAssemblyReference.cs" />
-    <Compile Include="Packages\IPackage.cs" />
     <Compile Include="IPackageContentViewer.cs" />
     <Compile Include="IPackageCommand.cs" />
+    <Compile Include="Packages\FrameworkAssemblyReference.cs" />
+    <Compile Include="Packages\IPackage.cs" />
     <Compile Include="Packages\IPackageAssemblyReference.cs" />
     <Compile Include="Packages\IPackageFile.cs" />
     <Compile Include="Packages\IPackageMetadata.cs" />

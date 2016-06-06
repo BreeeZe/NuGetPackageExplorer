@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
-using NuGetPe;
+using NuGet;
 using NuGetPackageExplorer.Types;
 
 namespace PackageExplorerViewModel.Rules
@@ -16,7 +16,7 @@ namespace PackageExplorerViewModel.Rules
 
         #region IPackageRule Members
 
-        public IEnumerable<PackageIssue> Validate(IPackage package, string packagePath)
+        public IEnumerable<PackageIssue> Validate(IPackage package)
         {
             foreach (IPackageFile file in package.GetFiles())
             {
@@ -42,11 +42,11 @@ namespace PackageExplorerViewModel.Rules
         private static PackageIssue CreatePackageIssueForMisplacedContent(string path)
         {
             return new PackageIssue(
-                PackageIssueLevel.Warning,
                 "Transform file outside content folder",
                 "The transform file '" + path +
                 "' is outside the 'content' folder and hence will not be transformed during installation of this package.",
-                "Move it into the 'content' folder.");
+                "Move it into the 'content' folder.",
+                PackageIssueLevel.Warning);
         }
     }
 }

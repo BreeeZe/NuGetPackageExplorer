@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
-using NuGetPe;
+using NuGet;
 using NuGetPackageExplorer.Types;
 using PackageExplorerViewModel;
 

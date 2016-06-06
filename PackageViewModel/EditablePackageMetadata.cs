@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using NuGetPe;
+using NuGet;
 
 namespace PackageExplorerViewModel
 {
@@ -378,11 +378,6 @@ namespace PackageExplorerViewModel
         IEnumerable<FrameworkAssemblyReference> IPackageMetadata.FrameworkAssemblies
         {
             get { return FrameworkAssemblies; }
-        }
-
-        IEnumerable<PackageReferenceSet> IPackageMetadata.PackageAssemblyReferences
-        {
-            get { return PackageAssemblyReferences; }
         }
 
         #endregion

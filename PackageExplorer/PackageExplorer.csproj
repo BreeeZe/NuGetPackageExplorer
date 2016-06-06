@@ -563,17 +563,9 @@
       <Project>{0de0af9f-4d53-4900-8d15-f02c3542584f}</Project>
       <Name>CodeExecutor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{57B4C84E-427E-4041-A4E0-14A3C00E6BA5}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PackageViewModel\PackageViewModel.csproj">
       <Project>{A1E66420-E485-4719-A37F-5B49AAFB43AB}</Project>
       <Name>PackageViewModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Types\Types.csproj">
-      <Project>{E2EEEC5A-6A07-447E-9E95-C14307F57EDE}</Project>
-      <Name>Types</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

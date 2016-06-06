@@ -1,3 +1,4 @@
+using NuGet;
 using System;
 using System.Data.Services.Client;
 using System.Diagnostics.CodeAnalysis;

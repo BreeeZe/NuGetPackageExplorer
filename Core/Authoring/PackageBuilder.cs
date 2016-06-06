@@ -7,6 +7,7 @@ using System.IO;
 using System.IO.Packaging;
 using System.Linq;
 using NuGetPe.Resources;
+using NuGet;
 
 namespace NuGetPe
 {
@@ -320,7 +321,7 @@ namespace NuGetPe
 
         private void WriteManifest(Package package, int minimumManifestVersion)
         {
-            Uri uri = UriUtility.CreatePartUri(Id + Constants.ManifestExtension);
+            Uri uri = NuGet.UriUtility.CreatePartUri(Id + Constants.ManifestExtension);
 
             // Create the manifest relationship
             package.CreateRelationship(uri, TargetMode.Internal,
@@ -401,7 +402,7 @@ namespace NuGetPe
 
         private static void CreatePart(Package package, string path, Stream sourceStream)
         {
-            if (PackageUtility.IsManifest(path))
+            if (PackageHelper.IsManifest(path))
             {
                 return;
             }

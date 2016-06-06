@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
-using NuGetPe;
+using NuGet;
 using NuGetPackageExplorer.Types;
+using PackageExplorerViewModel.Utilities;
 
 namespace PackageExplorerViewModel.Rules
 {
@@ -13,7 +14,7 @@ namespace PackageExplorerViewModel.Rules
     {
         #region IPackageRule Members
 
-        public IEnumerable<PackageIssue> Validate(IPackage package, string packagePath)
+        public IEnumerable<PackageIssue> Validate(IPackage package)
         {
             if (package.PackageAssemblyReferences.Any())
             {
@@ -32,10 +33,10 @@ namespace PackageExplorerViewModel.Rules
         private static PackageIssue CreateIssue(string reference)
         {
             return new PackageIssue(
-                PackageIssueLevel.Error,
                 "Assembly reference name not found.",
                 "The name '" + reference + "' in the Filtered Assembly References is not found under the 'lib' folder.",
-                "Either remove this assembly reference name or add a file with this name to the 'lib' folder.");
+                "Either remove this assembly reference name or add a file with this name to the 'lib' folder.",
+                PackageIssueLevel.Error);
         }
     }
 }

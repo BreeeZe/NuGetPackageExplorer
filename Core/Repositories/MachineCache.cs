@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NuGet;
+using System;
 using System.IO;
 using System.Linq;
 using System.Security;
@@ -43,7 +44,7 @@ namespace NuGetPe
             throw new NotSupportedException();
         }
 
-        public IPackage FindPackage(string packageId, NuGet.SemanticVersion version)
+        public NuGet.IPackage FindPackage(string packageId, NuGet.SemanticVersion version)
         {
             string path = GetPackageFilePath(packageId, version);
 

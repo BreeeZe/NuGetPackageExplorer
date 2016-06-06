@@ -195,7 +195,7 @@ namespace NuGetPe
         [XmlIgnore]
         public List<ManifestReferenceSet> ReferenceSets { get; set; }
 
-        SemanticVersion IPackageMetadata.Version
+        SemanticVersion IPackageName.Version
         {
             get
             {
@@ -267,7 +267,7 @@ namespace NuGetPe
             }
         }
 
-        IEnumerable<PackageDependencySet> IPackageMetadata.DependencySets
+        IEnumerable<NuGet.PackageDependencySet> IPackageMetadata.DependencySets
         {
             get
             {
@@ -295,35 +295,35 @@ namespace NuGetPe
             }
         }
 
-        IEnumerable<PackageReferenceSet> IPackageMetadata.PackageAssemblyReferences
-        {
-            get
-            {
-                if (ReferenceSets == null)
-                {
-                    return new PackageReferenceSet[0];
-                }
+        //IEnumerable<PackageReferenceSet> IPackageMetadata.PackageAssemblyReferences
+        //{
+        //    get
+        //    {
+        //        if (ReferenceSets == null)
+        //        {
+        //            return new PackageReferenceSet[0];
+        //        }
 
-                var referenceSets = ReferenceSets.Select(
-                    r => new PackageReferenceSet(
-                        String.IsNullOrEmpty(r.TargetFramework) ? null : VersionUtility.ParseFrameworkName(r.TargetFramework), 
-                        r.References.Select(a => a.File)));
+        //        var referenceSets = ReferenceSets.Select(
+        //            r => new PackageReferenceSet(
+        //                String.IsNullOrEmpty(r.TargetFramework) ? null : VersionUtility.ParseFrameworkName(r.TargetFramework), 
+        //                r.References.Select(a => a.File)));
 
-                var referenceSetGroups = referenceSets.GroupBy(set => set.TargetFramework);
-                var groupedReferenceSets = referenceSetGroups.Select(group => new PackageReferenceSet(group.Key, group.SelectMany(g => g.References)))
-                                                             .ToList();
+        //        var referenceSetGroups = referenceSets.GroupBy(set => set.TargetFramework);
+        //        var groupedReferenceSets = referenceSetGroups.Select(group => new PackageReferenceSet(group.Key, group.SelectMany(g => g.References)))
+        //                                                     .ToList();
 
-                int nullTargetFrameworkIndex = groupedReferenceSets.FindIndex(set => set.TargetFramework == null);
-                if (nullTargetFrameworkIndex > -1)
-                {
-                    var nullFxReferenceSet = groupedReferenceSets[nullTargetFrameworkIndex];
-                    groupedReferenceSets.RemoveAt(nullTargetFrameworkIndex);
-                    groupedReferenceSets.Insert(0, nullFxReferenceSet);
-                }
+        //        int nullTargetFrameworkIndex = groupedReferenceSets.FindIndex(set => set.TargetFramework == null);
+        //        if (nullTargetFrameworkIndex > -1)
+        //        {
+        //            var nullFxReferenceSet = groupedReferenceSets[nullTargetFrameworkIndex];
+        //            groupedReferenceSets.RemoveAt(nullTargetFrameworkIndex);
+        //            groupedReferenceSets.Insert(0, nullFxReferenceSet);
+        //        }
 
-                return groupedReferenceSets;
-            }
-        }
+        //        return groupedReferenceSets;
+        //    }
+        //}
 
         IEnumerable<FrameworkAssemblyReference> IPackageMetadata.FrameworkAssemblies
         {

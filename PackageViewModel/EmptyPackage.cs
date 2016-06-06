@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using NuGetPe;
+using System.Runtime.Versioning;
+using NuGet;
 
 namespace PackageExplorerViewModel
 {
@@ -23,6 +24,16 @@ namespace PackageExplorerViewModel
         public Stream GetStream()
         {
             return null;
+        }
+
+        public IEnumerable<FrameworkName> GetSupportedFrameworks()
+        {
+            yield break;
+        }
+
+        public void ExtractContents(IFileSystem fileSystem, string extractPath)
+        {
+            
         }
 
         public string Id
@@ -175,6 +186,22 @@ namespace PackageExplorerViewModel
             get
             {
                 return null;
+            }
+        }
+
+        public bool Listed
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        ICollection<PackageReferenceSet> IPackageMetadata.PackageAssemblyReferences
+        {
+            get
+            {
+                return new PackageReferenceSet[0];
             }
         }
 

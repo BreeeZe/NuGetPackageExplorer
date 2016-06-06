@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Controls;
-using NuGetPe;
+using NuGet;
 
 namespace PackageExplorer
 {

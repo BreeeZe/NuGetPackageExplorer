@@ -1,10 +1,11 @@
-﻿using System;
+﻿using NuGet;
+using System;
 using System.IO;
 using System.Linq;
 
 namespace NuGetPe
 {
-    public class LocalPackageRepository : IPackageRepository
+    public class LocalPackageRepository : NuGet.IPackageRepository
     {
         private readonly string _source;
 
@@ -23,7 +24,7 @@ namespace NuGetPe
             get { return _source; }
         }
 
-        public IQueryable<IPackage> GetPackages()
+        public IQueryable<NuGet.IPackage> GetPackages()
         {
             if (!Directory.Exists(Source))
             {
@@ -35,7 +36,7 @@ namespace NuGetPe
         }
 
 
-        public IQueryable<IPackage> GetPackagesById(string id, bool includePrerelease)
+        public IQueryable<NuGet.IPackage> GetPackagesById(string id, bool includePrerelease)
         {
             if (!Directory.Exists(Source))
             {
@@ -47,9 +48,7 @@ namespace NuGetPe
                          where p.Id == id
                          select p);
             if (!includePrerelease)
-            {
-                query = query.Where(p => !p.IsPrerelease);
-            }
+                query = query.Where(p => String.IsNullOrWhiteSpace(p.Version.SpecialVersion));
 
             return query.AsQueryable();
         }

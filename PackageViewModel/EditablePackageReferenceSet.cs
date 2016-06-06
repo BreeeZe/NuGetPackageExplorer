@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.Versioning;
-using NuGetPe;
+using NuGet;
 
 namespace PackageExplorerViewModel
 {

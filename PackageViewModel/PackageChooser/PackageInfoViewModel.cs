@@ -7,7 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using NuGetPe;
+using NuGet;
+using PackageExplorerViewModel.Utilities;
 
 namespace PackageExplorerViewModel
 {
@@ -248,7 +249,7 @@ namespace PackageExplorerViewModel
             if (repository is DataServicePackageRepository)
             {
                 return query.Cast<DataServicePackage>().Select(p => new PackageInfo
-                    {
+                {
                         Id = p.Id,
                         Version = p.Version,
                         Authors = p.Authors,
@@ -269,7 +270,7 @@ namespace PackageExplorerViewModel
                         DownloadCount = p.DownloadCount,
                         VersionDownloadCount = p.VersionDownloadCount,
                         PackageHash = p.PackageHash,
-                        PackageSize = p.PackageSize,
+                        PackageSize = p.PackageSize(),
                         DownloadUrl = new Uri(p.Source),
                         Published = p.Published,
                     });
